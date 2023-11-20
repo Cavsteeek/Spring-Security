@@ -5,6 +5,7 @@ import com.cavsteek.security.config.JwtService;
 import com.cavsteek.security.user.Role;
 import com.cavsteek.security.user.User;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -14,7 +15,7 @@ public class AuthenticationService {
     private final UserRepo repository;
     private final PasswordEncoder passwordEncoder;
     private final JwtService jwtService;
-    private final
+    private final AuthenticationManager authenticationManager;
     public AuthenticationResponse register(RegisterRequest request) {
         var user = User.builder()
                 .firstname(request.getFirstname())
